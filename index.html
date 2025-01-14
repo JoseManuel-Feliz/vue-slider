@@ -20,7 +20,7 @@
         integrity='sha512-gYM3HVh8zcICHvSj7kF/ChTdRVIhFx3rQao1Zc6UOGPWGDnjhXQPsPwRAqMoJ30mnbZK0n9VdD01cEH1O3gplg=='
         crossorigin='anonymous'></script>
     <!-- SCRIPT JS -->
-    <script src="./JS/script.js"></script>
+    <script defer src="./JS/script.js"></script>
 </head>
 
 <body>
@@ -29,24 +29,21 @@
         <div id="app" class="container">
 
             <div id="gallery" class="position-relative">
-                <i id="prev"
-                    class="fa-solid fa-circle-chevron-left arrows left position-absolute top-50 start-0 translate-middle-y"></i>
-                <i id="next"
-                    class="fa-solid fa-circle-chevron-right arrows right position-absolute top-50 end-0 translate-middle-y"></i>
+                <i class="fa-solid fa-circle-chevron-left arrows position-absolute top-50 start-0 translate-middle-y"
+                    @click="setCurrentIndex('prev')"></i>
+                <i class="fa-solid fa-circle-chevron-right arrows position-absolute top-50 end-0 translate-middle-y"
+                    @click="setCurrentIndex('next')"></i>
                 <div class="card border-0 z-n1">
-                    <img src="img/01.webp" class="card-img-top img-fluid" alt="...">
+                    <img :src="carouselItems[currentIndex].image" class="card-img-top img-fluid"
+                        :alt="carouselItems[currentIndex].title">
                     <div class="card-body">
-                        <p class="card-title fs-2 fw-semibold text-end ">Marvel\'s Spiderman Miles Morale</p>
-                        <p class="card-text fs-5 text-end ">Experience the rise of Miles Morales
-                            as
-                            the new hero masters incredible, explosive new powers to become his own Spider-Man.</p>
+                        <p class="card-title fs-2 fw-semibold text-end">{{carouselItems[currentIndex].title}}</p>
+                        <p class="card-text fs-5 text-end ">{{carouselItems[currentIndex].text}}</p>
                     </div>
                 </div>
             </div>
 
 
-        </div>
-        </div>
         </div>
     </main>
     <footer></footer>
